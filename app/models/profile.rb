@@ -11,4 +11,8 @@ class Profile
     @data[0]["owner"]["avatar_url"]
   end
 
+  def username
+    @data[0]["owner"]["login"]
+  end
+
 end
