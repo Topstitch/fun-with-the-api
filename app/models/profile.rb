@@ -8,7 +8,7 @@ class Profile
   end
 
   def profile_picture
-    @data
+    @data[0]["owner"]["avatar_url"]
   end
 
 end
