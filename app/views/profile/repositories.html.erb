@@ -7,12 +7,13 @@
 <p><%=@profile.starred%> Starred</p>
 <p><%=@profile.following%> Following</p>
 
-<%@profile.organizations.each do |url|%>
-  <img src = "<%=url%>">
+<%@profile.organization_data.each do |org|%>
+  <img src = "<%=org["avatar_url"]%>">
 <%end%>
 
-<%@profile.repository_names.each do |name|%>
-<h3><%=name%></h3>
-<p>Updated at</p>
+
+<%@profile.sorted_repo_list.each do |repo|%>
+  <h3><%=repo["name"]%></h3>
+  <p>Updated <%=time_ago_in_words(repo["updated_at"])%> ago</p>
 
 <%end%>

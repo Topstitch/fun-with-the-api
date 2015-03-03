@@ -1,4 +1,6 @@
 class Profile
+  attr_reader :organization_data
+
   def initialize
     repo_url = "https://api.github.com/users/Topstitch/repos"
     @repo_data = self.party_time(repo_url)
@@ -47,22 +49,9 @@ class Profile
     @profile_data["following"]
   end
 
-  def organizations
-    organizations_array = []
-    @organization_data.each do |org|
-      organizations_array << org["avatar_url"]
-    end
-    organizations_array
+  def sorted_repo_list
+    # @repo_data.sort_by{ |k, v| v[("updated_at".to_sym)] }  not working, possibly can't sort by the strings in updated_at...despair
+    @repo_data
   end
-
-  # I feel like there should be a less complicated way to do this, perhaps without breaking things into arrays, but I don't know what it is
-  def repository_names
-    repository_names_array = []
-    @repo_data.each do |repo|
-      repository_names_array << repo["name"]
-    end
-    repository_names_array
-  end
-
 
 end
