@@ -1,3 +1,12 @@
 <img src = "<%=@profile.profile_picture%>">
+
 <h1><%=@profile.username%></h1>
-<h1><%=@profile.joined_on%></h1>
+<p><%=@profile.joined_on%></p>
+
+<p><%=@profile.followers%> Followers</p>
+<p><%=@profile.starred%> Starred</p>
+<p><%=@profile.following%> Following</p>
+
+<%@profile.organizations.each do |url|%>
+  <img src = "<%=url%>">
+<%end%>

@@ -5,6 +5,12 @@ class Profile
 
     profile_url = "https://api.github.com/users/Topstitch"
     @profile_data = self.party_time(profile_url)
+
+    starred_url = "https://api.github.com/users/Topstitch/starred"
+    @starred_data = self.party_time(starred_url)
+
+    organization_url = "https://api.github.com/users/Topstitch/orgs"
+    @organization_data = self.party_time(organization_url)
   end
 
   def party_time(url)
@@ -23,7 +29,29 @@ class Profile
   end
 
   def joined_on
-    DateTime.parse(@profile_data["created_at"]).strftime('%b %d, %Y')
+    DateTime.parse(@profile_data["created_at"]).strftime('Joined on %b %d, %Y')
+  end
+
+  def followers
+    @profile_data["followers"]
+  end
+
+  # for whatever reason, they don't have "starred" on the profile api page
+  def starred
+    @starred_data.length
+  end
+
+
+  def following
+    @profile_data["following"]
+  end
+
+  def organizations
+    organizations = []
+    @organization_data.each do |l|
+      organizations << l["avatar_url"]
+    end
+    organizations
   end
 
 end
