@@ -9,6 +9,7 @@ class Profile
     starred_url = "https://api.github.com/users/Topstitch/starred"
     @starred_data = self.party_time(starred_url)
 
+    #unlike the others, this one only works with an authenticated call...can't view it in the browser
     organization_url = "https://api.github.com/users/Topstitch/orgs"
     @organization_data = self.party_time(organization_url)
   end
@@ -47,11 +48,21 @@ class Profile
   end
 
   def organizations
-    organizations = []
-    @organization_data.each do |l|
-      organizations << l["avatar_url"]
+    organizations_array = []
+    @organization_data.each do |org|
+      organizations_array << org["avatar_url"]
     end
-    organizations
+    organizations_array
   end
+
+  # I feel like there should be a less complicated way to do this, perhaps without breaking things into arrays, but I don't know what it is
+  def repository_names
+    repository_names_array = []
+    @repo_data.each do |repo|
+      repository_names_array << repo["name"]
+    end
+    repository_names_array
+  end
+
 
 end

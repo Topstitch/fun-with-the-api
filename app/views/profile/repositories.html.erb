@@ -10,3 +10,9 @@
 <%@profile.organizations.each do |url|%>
   <img src = "<%=url%>">
 <%end%>
+
+<%@profile.repository_names.each do |name|%>
+<h3><%=name%></h3>
+<p>Updated at</p>
+
+<%end%>
