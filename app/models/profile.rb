@@ -2,7 +2,7 @@ class Profile
   attr_reader :organization_data
 
   def initialize
-    repo_url = "https://api.github.com/users/Topstitch/repos"
+    repo_url = "https://api.github.com/users/Topstitch/repos?sort=updated"
     @repo_data = self.party_time(repo_url)
 
     profile_url = "https://api.github.com/users/Topstitch"

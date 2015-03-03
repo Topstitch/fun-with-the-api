@@ -1,1 +1,3 @@
 [{'id'=>29264284, 'name'=>'battleship_objects', 'full_name'=>'Topstitch/battleship_objects', 'updated_at'=>'2015-01-15T06:30:16Z'}, {'id'=>31224423, 'name'=>'coursyl', 'full_name'=>'Topstitch/coursyl', 'updated_at'=>'2015-02-23T22:52:30Z'}]
+could have done <%= link_to repo["html_url"] + "/stargazers", class "repo-list-stat-item" %>
+if you clear your cache, you wouldn't have the font anymore
